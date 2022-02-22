@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function capitalize(text)
+        {
+            return text.toUpperCase()[0] + text.substring(1);
+        }
+
+        function computerPlay() {
+            var thing = ['rock', 'paper', 'scissors'];
+            const random = Math.floor(Math.random() * thing.length)
+        
+            return thing[random];
+
+        }
+        computerPlay();
+
+        function playerPlay() {
+            var playerSelection = prompt("Insert your choice of `Rock`, `Paper` and `Scissors`:");
+            return playerSelection.toLowerCase();
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == computerSelection) {
+                console.log("It's a draw, " + capitalize(playerSelection) + " equals " + capitalize(computerSelection) + ".");
+                return;
+            }
+
+            if ((playerSelection == `rock` && computerSelection == `scissors`) || (playerSelection == `scissors` && computerSelection == `paper`) || (playerSelection == `paper` && computerSelection == `rock`)) {
+                console.log('You win! ' + capitalize(playerSelection) + " beats " + capitalize(computerSelection) + ".");
+            }
+            else {
+                console.log("You lose! " + capitalize(playerSelection) + " loses by  " + capitalize(computerSelection) + ".");
+            }
+        }
+
+            playRound(playerPlay(), computerPlay());
+    </script>
+</body>
+
+</html>
